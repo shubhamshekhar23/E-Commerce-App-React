@@ -1,19 +1,28 @@
 import React, { useEffect, useState, useRef } from "react";
 import * as searchFilterService from "../services/searchFilter.service";
+import * as utilService from "../services/util.service";
 import { useUrlHook } from "./hooks/useUrlHook";
 import { useDispatch, useSelector } from "react-redux";
+import { useDebounceHook } from "../hooks/useDebounceHook";
 
 function Search() {
   const { searchTerm } = useSelector((state) => state.searchFilters);
+  const [inputValue, setInputValue] = useState("");
 
   const { updateQueryParamInUrl } = useUrlHook();
+  const { debounced } = useDebounceHook(updateQueryParamInUrl, 500);
+
+  useEffect(() => {
+    setInputValue(searchTerm);
+  }, [searchTerm]);
 
   function handleChange(event) {
     const value = event.target.value;
-    updateQueryParamInUrl("search", value);
+    setInputValue(value);
+    debounced("search", value);
   }
 
-  return <input value={searchTerm} onChange={(event) => handleChange(event)} />;
+  return <input value={inputValue} onChange={(event) => handleChange(event)} />;
 }
 
 function Tile(props) {
