@@ -9,12 +9,18 @@ const productSlice = createSlice({
   initialState,
   reducers: {
     fetchProductsSuccess(state, action) {
-      state.status = "succeeded";
       state.products = action.payload;
+    },
+    fetchSkipLimitedProductsSuccess(state, action) {
+      if (action.payload.length > 0) {
+        state.products = [...state.products, ...action.payload];
+        return;
+      }
     },
   },
 });
 
-export const { fetchProductsSuccess } = productSlice.actions;
+export const { fetchProductsSuccess, fetchSkipLimitedProductsSuccess } =
+  productSlice.actions;
 
 export default productSlice.reducer;

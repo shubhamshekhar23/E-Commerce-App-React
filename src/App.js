@@ -31,7 +31,7 @@ function App() {
   const { products } = useSelector((state) => state.products);
   const { categories } = useSelector((state) => state.categories);
 
-  useUpdateFilterHook();
+  const { targetRef } = useUpdateFilterHook();
 
   useEffect(() => {
     categoryService.fetchCategories();
@@ -45,6 +45,12 @@ function App() {
       <div className="vertical-divider" />
       <div className="panel right-panel">
         <Product data={products} />
+        <div
+          ref={targetRef}
+          style={{
+            height: "25px",
+          }}
+        />
       </div>
     </div>
   );

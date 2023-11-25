@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as searchFilterService from "../../services/searchFilter.service";
+import * as productService from "../../services/product.service";
 
 export function useUrlHook() {
   const navigate = useNavigate();
 
   function updateQueryParamInUrl(param, value) {
+    productService.resetProducts();
+    searchFilterService.resetSkip();
+
     const existingUrl = location.pathname + location.search;
     const url = new URL(existingUrl, window.location.origin);
 

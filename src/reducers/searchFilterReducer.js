@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   searchTerm: "",
   category: "",
+  skip: 0,
 };
 
 const searchFilterSlice = createSlice({
@@ -15,9 +16,13 @@ const searchFilterSlice = createSlice({
     setCategory: (state, action) => {
       state.category = action.payload;
     },
+    setSkip: (state, action) => {
+      state.skip = action.payload;
+    },
   },
 });
 
-export const { setSearchTerm, setCategory } = searchFilterSlice.actions;
+export const { setSearchTerm, setCategory, setSkip } =
+  searchFilterSlice.actions;
 
 export default searchFilterSlice.reducer;

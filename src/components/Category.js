@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useUrlHook } from "./hooks/useUrlHook";
-import { useFetchProductHook } from "./hooks/useFetchProductHook";
 
 function CategoryCard(props) {
   const { name, selectedCategory, handleCategoryChange } = props;
@@ -25,7 +24,6 @@ export default function Category(props) {
   const { category } = useSelector((state) => state.searchFilters);
 
   const { updateQueryParamInUrl } = useUrlHook();
-  useFetchProductHook();
 
   const handleCategoryChange = (event) => {
     updateQueryParamInUrl("category", event.target.value);

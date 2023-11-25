@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import * as searchFilterService from "../services/searchFilter.service";
-import * as utilService from "../services/util.service";
 import { useUrlHook } from "./hooks/useUrlHook";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useDebounceHook } from "../hooks/useDebounceHook";
 
 function Search() {

@@ -1,37 +1,47 @@
 import * as productApiService from "./api/product-api.service";
-import { fetchProductsSuccess } from "../reducers/productReducer";
+import {
+  fetchProductsSuccess,
+  fetchSkipLimitedProductsSuccess,
+} from "../reducers/productReducer";
 import { store } from "../reducers/";
 
-export const fetchAllProducts = async () => {
+export const resetProducts = async () => {
   const dispatch = store.dispatch;
   try {
-    const response = await productApiService.fetchAllProducts();
-    console.log(response);
-    dispatch(fetchProductsSuccess(response.data.products));
+    dispatch(fetchProductsSuccess([]));
   } catch (error) {
     console.log(error);
   }
 };
 
-export const fetchProductsOfCategory = async (categoryName) => {
-  const dispatch = store.dispatch;
+export const fetchAllProducts = async (options = null) => {
+  try {
+    const response = await productApiService.fetchAllProducts(options);
+    _dispatchProductUpdateStore(response.data.products, options);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchProductsOfCategory = async (categoryName, options = null) => {
   try {
     const response = await productApiService.fetchProductsOfCategory(
-      categoryName
+      categoryName,
+      options
     );
-    console.log(response);
-    dispatch(fetchProductsSuccess(response.data.products));
+    _dispatchProductUpdateStore(response.data.products, options);
   } catch (error) {
     console.log(error);
   }
 };
 
-export const searchProducts = async (querySearch) => {
-  const dispatch = store.dispatch;
+export const searchProducts = async (querySearch, options = null) => {
   try {
-    const response = await productApiService.searchProducts(querySearch);
-    console.log(response);
-    dispatch(fetchProductsSuccess(response.data.products));
+    const response = await productApiService.searchProducts(
+      querySearch,
+      options
+    );
+    _dispatchProductUpdateStore(response.data.products, options);
   } catch (error) {
     console.log(error);
   }
@@ -39,36 +49,47 @@ export const searchProducts = async (querySearch) => {
 
 export const searchProductsAndFilterWithCategory = async (
   category,
-  querySearch
+  querySearch,
+  options
 ) => {
-  const dispatch = store.dispatch;
   try {
     if (!querySearch) {
-      _handleIfQuerySearchAbsent(category);
+      _handleIfQuerySearchAbsent(category, options);
       return;
     }
-    _handleIfQuerySearchPresent(category, querySearch, dispatch);
+    _handleIfQuerySearchPresent(category, querySearch, options);
   } catch (error) {
     console.log(error);
   }
 };
 
-async function _handleIfQuerySearchPresent(category, querySearch, dispatch) {
-  const response = await productApiService.searchProducts(querySearch);
+async function _dispatchProductUpdateStore(products, options) {
+  const dispatch = store.dispatch;
+
+  if (options) {
+    dispatch(fetchSkipLimitedProductsSuccess(products));
+    return;
+  }
+  dispatch(fetchProductsSuccess(products));
+}
+
+async function _handleIfQuerySearchPresent(category, querySearch, options) {
+  const dispatch = store.dispatch;
+  const response = await productApiService.searchProducts(querySearch, options);
   const products = response.data.products;
   if (!category) {
-    dispatch(fetchProductsSuccess(products));
+    _dispatchProductUpdateStore(products, options);
     return;
   }
   let filteredProducts = products;
   filteredProducts = products.filter((item) => item.category === category);
-  dispatch(fetchProductsSuccess(filteredProducts));
+  _dispatchProductUpdateStore(filteredProducts, options);
 }
 
-async function _handleIfQuerySearchAbsent(category) {
+async function _handleIfQuerySearchAbsent(category, options) {
   if (category) {
-    fetchProductsOfCategory(category);
+    fetchProductsOfCategory(category, options);
     return;
   }
-  fetchAllProducts();
+  fetchAllProducts(options);
 }
