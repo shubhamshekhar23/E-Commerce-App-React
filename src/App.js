@@ -3,9 +3,6 @@ import Product from "./components/Product";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import * as categoryService from "./services/category.service";
-import * as productService from "./services/product.service";
-import * as searchFilterService from "./services/searchFilter.service";
-import { useNavigate, useLocation } from "react-router-dom";
 import { useUpdateFilterHook } from "./hooks/useUpdateFilterHook";
 
 /**
