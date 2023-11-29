@@ -54,6 +54,14 @@ Technical Requirement
 - `action-services` are responsible for updating the store, and components utilize these services.
 - The `services/api` directory houses services dedicated to making API calls using Axios.
 
+## Limitations:
+
+- Currently searchQuery API doesn't support to fetch the matching products in batches
+- If searchquery and category both are present, then Currently the Category filtering is applied on the client side 
+  by first calling the searchquery APi to get the products and then filtering based on category. API can be implemented to do
+  this on server side.
+- UX can be improved using a loader indicator and showing a message if no products matching the filter criteria.
+
 */
 
 function App() {
