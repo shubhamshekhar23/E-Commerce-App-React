@@ -1,5 +1,7 @@
 # E-Commerce app : "Buyzon" (React)
 
+![Project preview](docs/preview.gif)
+
 ## Working Details:
 
 - Using https://dummyjson.com/docs to find JSON contract for fetching products and product categories.
