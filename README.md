@@ -1,4 +1,4 @@
-# E-Commerce-React
+# E-Commerce app : "Buyzon" (React)
 
 ## Working Details:
 
