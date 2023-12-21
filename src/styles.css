@@ -16,8 +16,9 @@
 
 .left-panel {
   flex: 1;
-  flex-wrap: wrap;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
 }
 
 .right-panel {
@@ -28,14 +29,6 @@
   width: 2px;
   height: 100vh;
   background-color: #ddd;
-}
-
-.category-card {
-  padding: 8px 4px;
-}
-
-.category-card label {
-  margin-left: 8px;
 }
 
 .search {
@@ -82,30 +75,6 @@
   font-size: 20px;
 }
 
-/* Basic styling for the radio input and label */
-input[type="radio"] {
-  display: none; /* Hide the default radio input */
-}
-
-input[type="radio"] + label {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  background-color: #f0f0f0;
-  color: #333;
-}
-
-/* Change label color when radio input is checked/active */
-input[type="radio"]:checked + label {
-  background-color: #3498db;
-  color: #fff;
-  border-color: #3498db;
-}
-
 .search input {
   width: 400px;
   font-size: 18px;
@@ -133,6 +102,7 @@ input[type="radio"]:checked + label {
   box-sizing: border-box;
   border: 1px solid lightgray;
   overflow: hidden;
+  background-color: lightgray;
 }
 
 .product-image {
@@ -145,6 +115,7 @@ input[type="radio"]:checked + label {
 .product-info {
   padding: 20px;
   flex: 3;
+  background-color: white;
 }
 
 .product-title {
@@ -209,4 +180,20 @@ input[type="radio"]:checked + label {
 
 .add-to-cart-button:hover {
   background-color: #45a049; /* Darker green on hover */
+}
+
+
+.filter-button {
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: black;
+  height: 50px;
+}
+
+/* Style when the button is active/toggled */
+.filter-button.active {
+  background-color: #e74c3c;
 }
