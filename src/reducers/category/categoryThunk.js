@@ -1,7 +1,7 @@
 import categoryApiService from "../../services/api/category-api.service";
 import { fetchCategoriesSuccess } from "./categoryReducer";
 
-export const fetchCategories = () => async (dispatch) => {
+export const fetchCategoriesThunk = () => async (dispatch) => {
   try {
     const response = await categoryApiService.fetchCategories();
     dispatch(fetchCategoriesSuccess(response.data));
