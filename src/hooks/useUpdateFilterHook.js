@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import * as searchFilterService from "../services/searchFilter.service";
 import { useDispatch, useSelector } from "react-redux";
-import { setSkip } from "../reducers/search-filter/searchFilterReducer";
+import { updateSearchTerm } from "../reducers/search-filter/searchFilterThunk";
 
 export function useUpdateFilterHook() {
   const { products } = useSelector((state) => state.products);
@@ -19,6 +18,8 @@ export function useUpdateFilterHook() {
 
   const LIMIT_ITEMS_FETCHED = 10;
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     /* when category is achnged or sesarch query is input */
     setScrollSkip(0);
@@ -26,7 +27,7 @@ export function useUpdateFilterHook() {
       limit: LIMIT_ITEMS_FETCHED,
       skip,
     };
-    searchFilterService.updateSearchTerm(categoryParam, searchParam, options);
+    dispatch(updateSearchTerm(categoryParam, searchParam, options));
   }, [location]);
 
   useEffect(() => {
@@ -36,7 +37,7 @@ export function useUpdateFilterHook() {
       limit: LIMIT_ITEMS_FETCHED,
       skip: scrollSKip,
     };
-    searchFilterService.updateSearchTerm(categoryParam, searchParam, options);
+    dispatch(updateSearchTerm(categoryParam, searchParam, options));
   }, [scrollSKip]);
 
   /* using observer api */
