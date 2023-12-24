@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setSkip } from "../../reducers/search-filter/searchFilterReducer";
-import { resetProducts } from "../../reducers/product/thunks/productListingThunk";
+import { setSkip } from "../../store/search-filter/searchFilterReducer";
+import { resetProducts } from "../../store/product/thunks/productListingThunk";
 
 export function useUrlHook() {
   const navigate = useNavigate();
