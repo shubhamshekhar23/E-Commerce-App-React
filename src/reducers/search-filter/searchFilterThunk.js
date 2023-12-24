@@ -1,5 +1,5 @@
-import * as productService from "../../services/product.service";
 import { setSearchTerm, setCategory } from "./searchFilterReducer";
+import { searchProductsAndFilterWithCategory } from "../product/productThunk";
 
 export const updateSearchTerm = (category, searchTerm, options = null) => {
   return async (dispatch) => {
@@ -7,10 +7,8 @@ export const updateSearchTerm = (category, searchTerm, options = null) => {
       dispatch(setSearchTerm(searchTerm));
       dispatch(setCategory(category));
 
-      productService.searchProductsAndFilterWithCategory(
-        category,
-        searchTerm,
-        options
+      dispatch(
+        searchProductsAndFilterWithCategory(category, searchTerm, options)
       );
     } catch (error) {
       console.log(error);
