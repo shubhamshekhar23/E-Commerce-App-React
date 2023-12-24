@@ -2,7 +2,7 @@ import Category from "./components/Category";
 import Product from "./components/Product";
 import React, { useEffect } from "react";
 import { useUpdateFilterHook } from "./hooks/useUpdateFilterHook";
-import { fetchCategoriesThunk } from "./store/category/thunks/categoryThunk";
+import { fetchCategoriesThunk } from "./store/category/thunks/categoryThunk/categoryThunk";
 import { useDispatch, useSelector } from "react-redux";
 
 function App() {

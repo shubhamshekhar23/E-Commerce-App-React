@@ -1,5 +1,5 @@
-import { setSearchTerm, setCategory } from "../searchFilterReducer";
-import { searchProductsAndFilterWithCategory } from "../../product/thunks/productListingThunk";
+import { setSearchTerm, setCategory } from "../../searchFilterReducer";
+import { searchProductsAndFilterWithCategory } from "../../../product/thunks/productListingThunk";
 
 export const updateSearchTerm = (category, searchTerm, options = null) => {
   return async (dispatch) => {
