@@ -1,18 +1,20 @@
 import Category from "./components/Category";
 import Product from "./components/Product";
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
 import * as categoryService from "./services/category.service";
 import { useUpdateFilterHook } from "./hooks/useUpdateFilterHook";
+import { fetchCategories } from "./reducers/category/categoryThunk";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   const { products } = useSelector((state) => state.products);
   const { categories } = useSelector((state) => state.categories);
 
   const { targetRef } = useUpdateFilterHook();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    categoryService.fetchCategories();
+    dispatch(fetchCategories());
   }, []);
 
   return (
