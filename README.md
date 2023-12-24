@@ -2,6 +2,14 @@
 
 ![Project preview](docs/preview.gif)
 
+## App Details:
+
+- App uses `@reduxjs/toolkit` and `thunk` for store and async updates
+- The `src/hooks` directory contains custom hooks designed for use across multiple components.
+- The `src/components/hooks` directory consists of hooks specific to individual components (not shared among multiple components).
+- The `services/api` directory houses services dedicated to making API calls using Axios.
+- API used is `https://dummyjson.com/docs` to fetch the products
+
 ## Working Details:
 
 - Using https://dummyjson.com/docs to find JSON contract for fetching products and product categories.
@@ -20,13 +28,6 @@
   - If a category is selected while searching, the results are filtered based on both the category and search query.
   - the above filtering is done on the client side as searchQuery api doesn't support category filter.
   - Upon refreshing the page, the search functionality remains effective.
-
-## Architecture and Folder Structure:
-
-- The `src/hooks` directory contains custom hooks designed for use across multiple components.
-- The `src/components/hooks` directory consists of hooks specific to individual components (not shared among multiple components).
-- `action-services` are responsible for updating the store, and components utilize these services.
-- The `services/api` directory houses services dedicated to making API calls using Axios.
 
 ## Limitations:
 
