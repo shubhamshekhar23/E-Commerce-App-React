@@ -1,8 +1,8 @@
-import * as productApiService from "../../../services/api/product-api.service";
+import * as productApiService from "../../../../services/api/product-api.service";
 import {
   fetchProductsSuccess,
   fetchSkipLimitedProductsSuccess,
-} from "../productReducer";
+} from "../../productReducer";
 
 export const fetchAllProducts = (options = null) => {
   return async (dispatch) => {

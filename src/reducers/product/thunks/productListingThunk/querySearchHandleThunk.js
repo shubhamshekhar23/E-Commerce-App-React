@@ -1,4 +1,4 @@
-import * as productApiService from "../../../services/api/product-api.service";
+import * as productApiService from "../../../../services/api/product-api.service";
 import {
   fetchAllProducts,
   fetchProductsOfCategory,

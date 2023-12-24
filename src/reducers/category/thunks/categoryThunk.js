@@ -1,5 +1,5 @@
-import categoryApiService from "../../services/api/category-api.service";
-import { fetchCategoriesSuccess } from "./categoryReducer";
+import categoryApiService from "../../../services/api/category-api.service";
+import { fetchCategoriesSuccess } from "../categoryReducer";
 
 export const fetchCategoriesThunk = () => {
   return async (dispatch) => {

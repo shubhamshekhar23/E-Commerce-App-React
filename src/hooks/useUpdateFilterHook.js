@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { updateSearchTerm } from "../reducers/search-filter/searchFilterThunk";
+import { updateSearchTerm } from "../reducers/search-filter/thunks/searchFilterThunk";
 
 export function useUpdateFilterHook() {
   const { products } = useSelector((state) => state.products);
