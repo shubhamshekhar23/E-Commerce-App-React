@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import productReducer from "./productReducer";
-import categoryReducer from "./categoryReducer";
-import searchFilterReducer from "./searchFilterReducer";
+import productReducer from "./product/productReducer";
+import categoryReducer from "./category/categoryReducer";
+import searchFilterReducer from "./search-filter/searchFilterReducer";
 
 export const store = configureStore({
   reducer: {

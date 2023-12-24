@@ -6,6 +6,12 @@
     "react",
     "starter"
   ],
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
   "main": "src/index.js",
   "dependencies": {
     "@reduxjs/toolkit": "1.9.7",
@@ -20,12 +26,6 @@
   "devDependencies": {
     "@babel/runtime": "7.13.8",
     "typescript": "4.1.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
   },
   "browserslist": [
     ">0.2%",

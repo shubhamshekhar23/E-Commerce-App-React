@@ -2,7 +2,7 @@ import * as productApiService from "./api/product-api.service";
 import {
   fetchProductsSuccess,
   fetchSkipLimitedProductsSuccess,
-} from "../reducers/productReducer";
+} from "../reducers/product/productReducer";
 import { store } from "../reducers/";
 
 export const resetProducts = async () => {

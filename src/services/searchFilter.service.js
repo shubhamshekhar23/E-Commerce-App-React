@@ -3,7 +3,7 @@ import {
   setCategory,
   setSearchTerm,
   setSkip,
-} from "../reducers/searchFilterReducer";
+} from "../reducers/search-filter/searchFilterReducer";
 import { store } from "../reducers/";
 
 export const resetSkip = async () => {
