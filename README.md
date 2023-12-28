@@ -1,5 +1,7 @@
 # E-Commerce app : "Buyzon" (React)
 
+- `Live` : <https://shubhamshekhar23.github.io/E-Commerce-App-React/>
+
 ![Project preview](docs/preview.gif)
 
 ## App Details:
