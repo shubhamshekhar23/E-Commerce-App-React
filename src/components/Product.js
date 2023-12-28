@@ -22,7 +22,7 @@ const Search = () => {
 
   return (
     <input
-      placeholder="Search Products..."
+      placeholder="Search Products....."
       value={inputValue}
       onChange={(event) => handleChange(event)}
     />
