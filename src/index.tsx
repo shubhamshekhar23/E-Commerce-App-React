@@ -12,7 +12,7 @@ const rootElement: any = document.getElementById("root");
 const root = createRoot(rootElement);
 
 const router = createBrowserRouter([
-  { path: "/", element: <App /> },
+  { path: "/E-Commerce-App-React", element: <App /> },
 ]);
 
 root.render(
