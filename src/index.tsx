@@ -8,11 +8,11 @@ import { store } from "./store/";
 
 import "./styles.css";
 
-const rootElement = document.getElementById("root");
+const rootElement: any = document.getElementById("root");
 const root = createRoot(rootElement);
 
 const router = createBrowserRouter([
-  { path: "/E-Commerce-App-React", element: <App /> },
+  { path: "/", element: <App /> },
 ]);
 
 root.render(

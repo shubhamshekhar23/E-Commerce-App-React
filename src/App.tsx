@@ -6,11 +6,11 @@ import { fetchCategoriesThunk } from "./store/category/thunks/categoryThunk/cate
 import { useDispatch, useSelector } from "react-redux";
 
 function App() {
-  const { products } = useSelector((state) => state.products);
-  const { categories } = useSelector((state) => state.categories);
+  const { products } = useSelector((state: any) => state.products);
+  const { categories } = useSelector((state: any) => state.categories);
 
   const { targetRef } = useUpdateFilterHook();
-  const dispatch = useDispatch();
+  const dispatch: any = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCategoriesThunk());
@@ -36,3 +36,4 @@ function App() {
 }
 
 export default App;
+
