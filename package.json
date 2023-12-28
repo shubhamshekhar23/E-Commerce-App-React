@@ -1,4 +1,5 @@
 {
+  "homepage": "https://shubhamshekhar23.github.io/E-Commerce-App-React",
   "name": "react",
   "version": "1.0.0",
   "description": "React example starter project",
@@ -21,7 +22,7 @@
     "react-dom": "18.2.0",
     "react-redux": "8.1.3",
     "react-router-dom": "6.18.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",
